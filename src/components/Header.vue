@@ -1,7 +1,7 @@
 <template>
     <div class="header">
-        <h1>Task Tracker</h1>
-        <Button />
+        <h1>{{title}}</h1>
+        <Button :color ="showAddTask? 'red' : 'green'" :text= "showAddTask? 'Close' : 'Add Task'" @btn-click="$emit('toggle-add-task')" />
     </div>
 </template>
 
@@ -9,7 +9,12 @@
 import Button from './Button'
 export default{
     name: 'Header',
-    components: { Button }
+    components: { Button },
+    props:{
+        title: String,
+        showAddTask : Boolean,
+    },
+    emits: ['toggle-add-task'],
 }
 </script>
 

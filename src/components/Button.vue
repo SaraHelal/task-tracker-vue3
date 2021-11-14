@@ -1,11 +1,21 @@
 <template>
-    <button class="btn" >Add Task</button>
+    <button @click="onClick()" class="btn" :style="{background:color}" >{{text}}</button>
 </template>
 
 <script>
 export default{
     name: 'Button',
-    components: {}
+    components: {},
+    props:{
+        text: String,
+        color: String,
+    },
+    methods:{
+        onClick(){
+            this.$emit('btn-click');
+            
+        }
+    }
 }
 </script>
 
